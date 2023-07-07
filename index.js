@@ -1,8 +1,13 @@
-import yargs from "yargs";
+// Option through commander
+import { program } from "commander";
+
+// Option through yargs
+// import yargs from "yargs";
 
 import contactsService from "./contacts.js";
 
-const { argv } = yargs(process.argv.slice(2));
+// Option through yargs
+// const { argv } = yargs(process.argv.slice(2));
 
 const invokeAction = async ({ action, id, name, email, phone }) => {
   try {
@@ -58,13 +63,27 @@ const invokeAction = async ({ action, id, name, email, phone }) => {
 // });
 // invokeAction({
 //   action: "update",
-//   id: "-ySCr57oLrUVT7DEb_q_D",
-//   name: "contact",
-//   email: "ewqsewq.net",
-//   phone: "(093) 24d7 33 22",
+//   id: "drsAJ4SHPYqZeG-83QTVW",
+//   name: "Hello",
+//   email: "qweqwe.net",
+//   phone: "(093) 247 33 22",
 // });
-// invokeAction({ action: "remove", id: "rsKkOQUi80UsgVPCcLZZW" });
+// invokeAction({ action: "remove", id: "AeHIrLTr6JkxGE6SN-0Rw" });
 
 //  step 4 Checked \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
-invokeAction(argv);
+// Option through commander
+program
+  .option("-a, --action <type>")
+  .option("-i, --id <type>")
+  .option("-n, --name <type>")
+  .option("-e, --email <type>")
+  .option("-p, --phone <type>");
+
+program.parse();
+
+const options = program.opts();
+invokeAction(options);
+
+// Option through yargs
+// invokeAction(argv);
