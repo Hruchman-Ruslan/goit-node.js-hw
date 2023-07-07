@@ -1,4 +1,8 @@
+import yargs from "yargs";
+
 import contactsService from "./contacts.js";
+
+const { argv } = yargs(process.argv.slice(2));
 
 const invokeAction = async ({ action, id, name, email, phone }) => {
   try {
@@ -60,3 +64,7 @@ const invokeAction = async ({ action, id, name, email, phone }) => {
 //   phone: "(093) 24d7 33 22",
 // });
 // invokeAction({ action: "remove", id: "rsKkOQUi80UsgVPCcLZZW" });
+
+//  step 4 Checked \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+invokeAction(argv);
