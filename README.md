@@ -1,7 +1,7 @@
 # Method through commander
 
-![Picture with work code Checking my code](images\сheck through commander.jpg)
+![Checking my code through method commander](./images/%D1%81heck%20through%20commander.jpg)
 
 # Method through yargs
 
-![Picture with work code Checking my code](images\сheck through yargs.jpg)
+![Checking my code through method yargs](./images/%D1%81heck%20through%20yargs.jpg)
