@@ -14,12 +14,12 @@ const invokeAction = async ({ action, id, name, email, phone }) => {
     switch (action) {
       case "list":
         const allContacts = await contactsService.listContacts();
-        return console.log(allContacts);
+        return console.table(allContacts);
         break;
 
       case "get":
         const oneContact = await contactsService.getContactById(id);
-        return console.log(oneContact);
+        return console.table(oneContact);
         break;
 
       case "add":
@@ -28,7 +28,7 @@ const invokeAction = async ({ action, id, name, email, phone }) => {
           email,
           phone,
         });
-        return console.log(newContact);
+        return console.table(newContact);
         break;
 
       case "update":
@@ -37,12 +37,13 @@ const invokeAction = async ({ action, id, name, email, phone }) => {
           email,
           phone,
         });
-        return updateContact;
+
+        return console.table(updateContact);
         break;
 
       case "remove":
         const deleteContact = await contactsService.removeContact(id);
-        return console.log(deleteContact);
+        return console.table(deleteContact);
         break;
 
       default:
@@ -52,25 +53,6 @@ const invokeAction = async ({ action, id, name, email, phone }) => {
     console.log(error.message);
   }
 };
-
-// invokeAction({ action: "list" });
-// invokeAction({ action: "get", id: "rsKkOQUi80UsgVPCcLZZW" });
-// invokeAction({
-//   action: "add",
-//   name: "Ruslan Hruchman",
-//   email: "qwe123qwe.net",
-//   phone: "(063) 887 31 25",
-// });
-// invokeAction({
-//   action: "update",
-//   id: "drsAJ4SHPYqZeG-83QTVW",
-//   name: "Hello",
-//   email: "qweqwe.net",
-//   phone: "(093) 247 33 22",
-// });
-// invokeAction({ action: "remove", id: "AeHIrLTr6JkxGE6SN-0Rw" });
-
-//  step 4 Checked \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
 // Option through commander
 program
